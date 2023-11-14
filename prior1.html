@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.9.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 0,
+    "latitude": 0.7893,
+    "longitude": 113.9213,
+    "pitch": 0,
+    "zoom": 3
+  },
+  "layers": [
+    {
+      "@@type": "GreatCircleLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1311,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2526,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 10,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1630,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1564,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 490,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1977,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        255,
+        255
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        255,
+        255
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "id": "968dfd65-f4e2-44be-828c-6c091db856f1",
+      "pickable": false
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "pickingRadius": 10,
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
