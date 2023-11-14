@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2fc6bae8320b1f03f7a80b3c44751863 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2fc6bae8320b1f03f7a80b3c44751863" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2fc6bae8320b1f03f7a80b3c44751863 = L.map(
+                "map_2fc6bae8320b1f03f7a80b3c44751863",
+                {
+                    center: [50.0, -40.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_326210f4f7ba16c1f2aa9c5dce65ac50 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            var poly_line_fa5d1657414ae7b258326c5be5b08423 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-2.858620657849378, 53.3363751054422]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_fa5d1657414ae7b258326c5be5b08423.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Liverpool John Lennon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_fd7d6fa79c7e6884aa78fce5957d8e87 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-1.7103457840721599, 55.03708486080194]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_fd7d6fa79c7e6884aa78fce5957d8e87.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Newcastle Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_693e89a329934d47e083173b113048c6 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [39.69913595604173, 24.544233960566075]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_693e89a329934d47e083173b113048c6.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Madinah Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5c8b8cd994e387c3e3b0cf6370c23860 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [35.296961426833796, 36.985209064179486]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_5c8b8cd994e387c3e3b0cf6370c23860.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Sakirpasa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1098e8ccedada1d6b62403a403befed9 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-101.70535277269676, 35.21840319193981]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_1098e8ccedada1d6b62403a403befed9.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Amarillo Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_445640ecae8c2158fb2c9ceafba56e13 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-86.75237736154622, 33.561867282805764]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_445640ecae8c2158fb2c9ceafba56e13.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Birmingham Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5acd56798d07dd4ea9775fe5b833b351 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-108.5369293881246, 45.80368557152783]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_5acd56798d07dd4ea9775fe5b833b351.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Logan Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_a788db73878f7f6173ba5f2f3f8380e4 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [27.516409366295253, 42.56708354877018]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_a788db73878f7f6173ba5f2f3f8380e4.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Bourgas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_36636e5a03ea74b037d0da06b377cf5d = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [8.785861770313199, 53.052287104156]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_36636e5a03ea74b037d0da06b377cf5d.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Bremen
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2dc87f2abb07777aba9783ff961a52df = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-2.710864691343084, 51.386293418914825]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_2dc87f2abb07777aba9783ff961a52df.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Bristol Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_848782c79cf9b42371b22b2a85472300 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-91.15675440481046, 30.532613804058553]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_848782c79cf9b42371b22b2a85472300.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Baton Rouge Metro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_aba90b491151e2a374960910d3f1e79d = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [17.199985002220785, 48.16983790625348]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_aba90b491151e2a374960910d3f1e79d.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Bratislava-M.R. Stefanik
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e51fda070ff776ca3be0aa827d960565 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-81.1093352429377, 33.93420545842753]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_e51fda070ff776ca3be0aa827d960565.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Columbia Metro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8657de911b3904d1cf9d5ac521f383d4 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-106.46444480969177, 42.89719004830056]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_8657de911b3904d1cf9d5ac521f383d4.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Casper/Natrona County Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_79117d1b6fb135f2d4437e3976db603b = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [15.067460500705339, 37.47007280034101]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_79117d1b6fb135f2d4437e3976db603b.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Catania Fontanarossa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_6d68dea453c53c9a4959aee191b1530f = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-3.339568764291176, 51.398622091101736]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_6d68dea453c53c9a4959aee191b1530f.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Cardiff
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_f7fe8bea8d620c836169804d05c3a7a8 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-84.22045942381023, 39.899040286536184]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_f7fe8bea8d620c836169804d05c3a7a8.bindTooltip(
+                `<div>
+                     San Francisco Int'l to James M. Cox Dayton Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ca2a5c206a4bab2c12c6046ea0a41891 = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-77.0433373925631, 38.85371620121225]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_ca2a5c206a4bab2c12c6046ea0a41891.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Washington Nat'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d3ad39164558cbcab0a5a9e297ae906d = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [37.74480855721033, 48.06916712855818]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_d3ad39164558cbcab0a5a9e297ae906d.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Donetsk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_4f0be7edbd6686baef0055ee3e5f296a = L.polyline(
+                [[-122.38347034444931, 37.61702508680534], [-3.364284685135544, 55.94855401136389]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 12}
+            ).addTo(map_2fc6bae8320b1f03f7a80b3c44751863);
+        
+    
+            poly_line_4f0be7edbd6686baef0055ee3e5f296a.bindTooltip(
+                `<div>
+                     San Francisco Int'l to Edinburgh Int'l
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
