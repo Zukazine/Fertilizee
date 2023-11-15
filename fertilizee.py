@@ -3,15 +3,20 @@ import pandas as pd
 import pydeck as pdk
 import geopandas as gpd
 import folium
+from folium import Choropleth
 import time
+from streamlit_folium import folium_static
 from math import radians, sin, cos, sqrt, atan2
 
 st. set_page_config(layout="wide") 
+red_icon = "🔴"
+orange_icon = "🟠"
+yellow_icon = "🟡"
 
-st.title('Fertilizer and Indonesian Land')
+st.title('Welcome to MANTAP Dashboard')
 
 highlight = 'potensi distribusi pupuk, tingkat kesehatan tanah, dan kebutuhan pupuk'
-st.markdown(f"Melalui peta interaktif yang disediakan, Anda dapat menjelajahi hubungan antara suplai pupuk dan kondisi lahan di beberapa wilayah kunci di Indonesia. Daerah yang memiliki produksi pupuk yang tinggi akan menjadi supplier bagi daerah-daerah yang memiliki demand. Visualisasi fokus pada **{highlight}** pada suatu wilayah")
+st.markdown(f"Melalui peta interaktif yang disediakan, Anda dapat menjelajahi hubungan antara suplai pupuk dan kondisi lahan di beberapa wilayah kunci di Indonesia. Daerah yang memiliki produksi pupuk yang tinggi akan menjadi supplier bagi daerah-daerah yang memiliki demand. Visualisasi fokus pada **{highlight}** pada suatu wilayah. *Disclaimer : Dashboard juga masih dalam tahap awal, peta akan membutuhkan waktu untuk melakukan loading*")
 
 left_column, right_column = st.columns(2)
 
@@ -521,30 +526,86 @@ def load_jabar(list_of_gdf):
 
     return r
 
+def demand_map():
+    indo = gpd.read_file('FIX_INA_Pupuk.shp')
+    pupuk = list(indo.Data_untuk)
+    pupuk_conv = [float(x.replace('.', '').replace(',','.')) for x in pupuk]
+    indo.Data_untuk = pupuk_conv
+
+    m = folium.Map(location=[0.7893,113.9213], tiles = 'cartodbdark_matter', zoom_start=4)
+
+    wilayah = indo[["Provinsi", "geometry"]]
+    demand = indo.Data_untuk
+
+    Choropleth(geo_data = wilayah.__geo_interface__,
+           data = demand,
+           key_on='feature.id',
+           fill_color='OrRd',
+           legend_name='Demand Pupuk',
+           line_color = 'Red'
+           ).add_to(m)
+    
+    folium.plugins.Fullscreen(
+    position="topright",
+    title="Expand me",
+    title_cancel="Exit me",
+    force_separate_button=True,
+    ).add_to(m)
+
+    return m
+    
+def soil_map():
+    indo = gpd.read_file('FIX_INA_Pupuk.shp')
+    pupuk = list(indo.Data_untuk)
+    pupuk_conv = [float(x.replace('.', '').replace(',','.')) for x in pupuk]
+    indo.Data_untuk = pupuk_conv
+
+    m = folium.Map(location=[0.7893,113.9213], tiles = 'cartodbdark_matter', zoom_start=4)
+
+    wilayah = indo[["Provinsi", "geometry"]]
+    soil_index = indo.MEAN
+
+    Choropleth(geo_data = wilayah.__geo_interface__,
+           data = soil_index,
+           key_on='feature.id',
+           fill_color='Greens',
+           legend_name='Soil index',
+           line_color = 'Blue'
+           ).add_to(m)
+    
+    folium.plugins.Fullscreen(
+    position="topright",
+    title="Expand me",
+    title_cancel="Exit me",
+    force_separate_button=True,
+    ).add_to(m)
+
+    return m
 
 st.subheader('Map Fertilizer Potential Distribution')
-# st.markdown(f'{supply_chain}')
-# st.text((read_data_pdk()))
+# di col 3
+st.markdown(f'{red_icon} High Potential' + '  ' + f'{orange_icon}Medium Potential' + '   ' + f'{yellow_icon} Low Potential')
+
 if supply_chain:
     # st.text(read_data_pdk('All Chain'))
     if supply_chain == 'All Chain':
-        with st.spinner('Loading PyDeck map...'):
+        with st.spinner('Under calculations...'):
             time.sleep(3)
             st.pydeck_chart(load_all_chain(read_data_pdk()))
     elif supply_chain == 'Aceh':
-        with st.spinner('Loading PyDeck map...'):
+        with st.spinner('Under calculations...'):
             time.sleep(3)
             st.pydeck_chart(load_aceh(read_data_pdk()))
     elif supply_chain == 'Sumatera Selatan':
-        with st.spinner('Loading PyDeck map...'):
+        with st.spinner('Under calculations...'):
             time.sleep(3)
             st.pydeck_chart(load_sumsel(read_data_pdk()))
     elif supply_chain == 'Kalimantan Timur':
-        with st.spinner('Loading PyDeck map...'):
+        with st.spinner('Under calculations...'):
             time.sleep(3)
             st.pydeck_chart(load_kaltim(read_data_pdk()))
     elif supply_chain == 'Jawa Barat':
-        with st.spinner('Loading PyDeck map...'):
+        with st.spinner('Under calculations...'):
             time.sleep(3)
             st.pydeck_chart(load_jabar(read_data_pdk()))
     elif supply_chain == 'Jawa Timur':
@@ -553,6 +614,18 @@ if supply_chain:
             st.pydeck_chart(load_jatim(read_data_pdk()))
     else:
         st.text('Roti')
+
+st.subheader('Soil Index & Fertilizer Demand Area')
+st.markdown(f'Visualized By : {visualize_by}')
+if visualize_by:
+    if visualize_by == 'Demand':
+        with st.spinner('Under calculations...'):
+            time.sleep(3)
+            folium_static(demand_map(), width = 1200)
+    else:
+        with st.spinner('Under calculations...'):
+            time.sleep(3)
+            folium_static(soil_map(), width = 1200)
 
 
 
