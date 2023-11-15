@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.9.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 20,
+    "latitude": 0.7893,
+    "longitude": 113.9213,
+    "pitch": 100,
+    "zoom": 4
+  },
+  "layers": [
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 3079,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Nusa Tenggara Timur",
+          "to_coords": [
+            121.0793705,
+            -8.6573819
+          ]
+        },
+        {
+          "distance(km)": 2725,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Nusa Tenggara Barat",
+          "to_coords": [
+            117.3616476,
+            -8.6529334
+          ]
+        },
+        {
+          "distance(km)": 2062,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Yogyakarta",
+          "to_coords": [
+            110.4262088,
+            -7.8753849
+          ]
+        },
+        {
+          "distance(km)": 2826,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Sulawesi Tengah",
+          "to_coords": [
+            121.4456179,
+            -1.4300254
+          ]
+        },
+        {
+          "distance(km)": 933,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 50,
+          "to": "Jambi",
+          "to_coords": [
+            102.4380581,
+            -1.4851831
+          ]
+        },
+        {
+          "distance(km)": 2510,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Bali",
+          "to_coords": [
+            115.188916,
+            -8.4095178
+          ]
+        },
+        {
+          "distance(km)": 2742,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Sulawesi Selatan",
+          "to_coords": [
+            119.9740534,
+            -3.6687994
+          ]
+        },
+        {
+          "distance(km)": 1985,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Jawa Tengah",
+          "to_coords": [
+            110.1402594,
+            -7.150975
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        0,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "89e648fc-a36a-4649-bcbb-d28d3c66486a",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 2634,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.2320784,
+            -2.8441371
+          ]
+        },
+        {
+          "distance(km)": 1726,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.4752851,
+            -0.2787808
+          ]
+        },
+        {
+          "distance(km)": 736,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 50,
+          "to": "Provinsi Riau",
+          "to_coords": [
+            101.7068294,
+            0.2933469
+          ]
+        },
+        {
+          "distance(km)": 1110,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.3463875,
+            -3.5778471
+          ]
+        },
+        {
+          "distance(km)": 753,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 50,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.8000051,
+            -0.7399397
+          ]
+        },
+        {
+          "distance(km)": 1408,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Lampung",
+          "to_coords": [
+            105.4068079,
+            -4.5585849
+          ]
+        },
+        {
+          "distance(km)": 1610,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Banten",
+          "to_coords": [
+            106.0640179,
+            -6.4058172
+          ]
+        },
+        {
+          "distance(km)": 3465,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Maluku Utara",
+          "to_coords": [
+            127.8087693,
+            1.5709993
+          ]
+        },
+        {
+          "distance(km)": 3057,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            123.9750018,
+            0.6246932
+          ]
+        },
+        {
+          "distance(km)": 2990,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Sulawesi Tenggara",
+          "to_coords": [
+            122.174605,
+            -4.14491
+          ]
+        },
+        {
+          "distance(km)": 2887,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Gorontalo",
+          "to_coords": [
+            122.4467238,
+            0.6999372
+          ]
+        },
+        {
+          "distance(km)": 3813,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Maluku",
+          "to_coords": [
+            130.1452734,
+            -3.2384616
+          ]
+        },
+        {
+          "distance(km)": 422,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 60,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.5450974,
+            2.1153547
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "ad8aea17-e307-4096-aca4-d0844703f03c",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1651,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "DKI Jakarta",
+          "to_coords": [
+            106.845172,
+            -6.211544
+          ]
+        },
+        {
+          "distance(km)": 2233,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.2837585,
+            -3.0926415
+          ]
+        },
+        {
+          "distance(km)": 2169,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Kalimantan Utara",
+          "to_coords": [
+            116.21634789778791,
+            2.8888907926569765
+          ]
+        },
+        {
+          "distance(km)": 4698,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Papua",
+          "to_coords": [
+            138.0803529,
+            -4.269928
+          ]
+        },
+        {
+          "distance(km)": 4101,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 30,
+          "to": "Papua Barat",
+          "to_coords": [
+            133.1747162,
+            -1.3361154
+          ]
+        },
+        {
+          "distance(km)": 1266,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Kepulauan Riau",
+          "to_coords": [
+            108.1428669,
+            3.9456514
+          ]
+        },
+        {
+          "distance(km)": 1979,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.3823545,
+            -1.6814878
+          ]
+        },
+        {
+          "distance(km)": 1357,
+          "from": "Aceh",
+          "from_x": 96.7493993,
+          "from_y": 4.695135,
+          "stroke_val": 40,
+          "to": "Bangka Belitung",
+          "to_coords": [
+            106.4405872,
+            -2.7410513
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        214,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        214,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "615c6031-84f6-4b5e-8633-43ca70c38eb5",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "pickingRadius": 10,
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': '{from} distribusi ke {to}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
