@@ -1,0 +1,3037 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.9.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 20,
+    "latitude": 0.7893,
+    "longitude": 113.9213,
+    "pitch": 100,
+    "zoom": 4
+  },
+  "layers": [
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 212,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 453,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 683,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 14,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 358,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 1037,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "b81049a4-0c14-43a9-95a2-aa0cbd120450",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 2211,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 1978,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 2730,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 10,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 2436,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 1083,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "4c462760-a23b-4468-a674-62091206c29f",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 678,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 14,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 335,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 17,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 1358,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 1031,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 864,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "925e6e21-8be2-49a7-9825-28ea449cdc06",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1293,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 963,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 1950,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 1623,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 804,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "475a0a60-4335-4033-bc87-bfae0cde32cd",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 2074,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 1769,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 2692,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 10,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 2371,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 1182,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "615de39c-e592-4098-bb71-60889be6a06f",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 268,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 17,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 208,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 17,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 922,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 14,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 594,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 14,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 950,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "fd3f5c31-dd7c-4413-a771-d791cdf0aefb",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1559,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 1240,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 2201,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 1875,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 867,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "7a833b0b-774f-4eb0-8098-7b845aae5176",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1354,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 1019,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 2017,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 1689,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 871,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "c971fb05-3dda-443a-84f3-359b5fa2ed29",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 2578,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 10,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 2282,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 3176,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 10,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 2861,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 10,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 1593,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "313617c6-5d34-42b7-97c1-13196b869e4d",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1039,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 694,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 1715,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 1388,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 854,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "27b10f2e-b81c-42fb-9032-b4391c76473d",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 2427,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Sumatera Barat",
+          "to_coords": [
+            100.46672122302289,
+            -0.8517519864316823
+          ]
+        },
+        {
+          "distance(km)": 2190,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Bengkulu",
+          "to_coords": [
+            102.33714758212847,
+            -3.5330712218439566
+          ]
+        },
+        {
+          "distance(km)": 2945,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 10,
+          "to": "Aceh",
+          "to_coords": [
+            96.91088682159325,
+            4.224480160407013
+          ]
+        },
+        {
+          "distance(km)": 2652,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 10,
+          "to": "Sumatera Utara",
+          "to_coords": [
+            99.05331159952856,
+            2.1908112168957947
+          ]
+        },
+        {
+          "distance(km)": 1296,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Kalimantan Barat",
+          "to_coords": [
+            111.12096450369842,
+            -0.08665338514863673
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "d4aa9dd5-7847-4131-ab35-0902c41d5115",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1311,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2526,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 10,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1630,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1564,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 490,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1977,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "1d4a35ec-e93a-477a-b4bf-57dd79e3de0d",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 785,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 737,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 620,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 530,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1775,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 167,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 17,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "291b9aeb-6d9d-48b8-a1c5-3c2c59f41efe",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1002,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2272,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1405,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1175,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 211,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1612,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "bff9466f-432f-4ab2-8979-aca9f480e217",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 723,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1849,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1104,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 749,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 804,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1144,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "8cdab116-8065-4a57-8bd1-3eb911a82cf8",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 900,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1344,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1014,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 664,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1591,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 712,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "f63e1d26-2a86-4fe7-a9a9-754a870c625d",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1188,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2445,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1547,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1420,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 233,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1848,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "ca5872dd-ccf4-4bdf-b9b4-5df743625450",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 684,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1645,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 999,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 604,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1071,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 936,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "50b784e8-21b4-46e3-9520-ce35bf2834a1",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 773,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1863,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1144,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 776,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 867,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1155,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "955e6fa4-dcef-45af-86f7-ccf015706f56",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1290,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1198,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1252,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1020,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 2100,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 818,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "44ea6367-e68f-4a22-8c4c-e5288ce32b73",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 874,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2086,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1281,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 971,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 560,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1392,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "00b47945-12ae-4a23-8584-c533baee3185",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1001,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 658,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 804,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 746,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1988,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 354,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 17,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        0,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        255,
+        122,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "93bfc4ec-0daf-4f3f-ace0-f696290f144f",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1311,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2526,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 10,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1630,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1564,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 490,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1977,
+          "from": "Riau",
+          "from_x": 101.80817323985067,
+          "from_y": 0.509879523489547,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "66c2131c-44ad-4fa8-8230-f15cc42d1650",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 785,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 737,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 620,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 530,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1775,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 167,
+          "from": "Sulawesi Selatan",
+          "from_x": 120.16113731619019,
+          "from_y": -3.7322966293489497,
+          "stroke_val": 17,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "d10f40dd-f168-4a20-b1f1-8ee0ba604d12",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1002,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2272,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1405,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1175,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 211,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1612,
+          "from": "Lampung",
+          "from_x": 105.02283262095662,
+          "from_y": -4.917955237085422,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "c86f972f-d282-47f1-bf87-b2a1f4a1c277",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 723,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1849,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1104,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 749,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 804,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1144,
+          "from": "Jawa Tengah",
+          "from_x": 110.20073985483569,
+          "from_y": -7.259387694138477,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "ba330f4f-4a32-4dec-bdf1-002a95a5b1d6",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 900,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1344,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1014,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 664,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1591,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 712,
+          "from": "Nusa Tenggara Barat",
+          "from_x": 117.50745213656843,
+          "from_y": -8.606664515069584,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "5a7f2da1-a670-47af-b40b-5a61a83fa72d",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1188,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2445,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1547,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1420,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 233,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 17,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1848,
+          "from": "Jambi",
+          "from_x": 102.72375185366029,
+          "from_y": -1.6994237897921645,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "af0266a7-433e-4269-b30c-4322124d8f92",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 684,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1645,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 999,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 604,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1071,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 936,
+          "from": "Jawa Timur",
+          "from_x": 112.73344537166648,
+          "from_y": -7.720070376433175,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "785cdf0e-734a-41e0-bb78-9cb97f3ff249",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 773,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1863,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1144,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 776,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 867,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1155,
+          "from": "Yogyakarta",
+          "from_x": 110.44537949571708,
+          "from_y": -7.89502820409914,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "42e20553-28a5-47c3-9da6-ce68b516c85b",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1290,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 1198,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1252,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 1020,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 2100,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 818,
+          "from": "Nusa Tenggara Timur",
+          "from_x": 122.18068295575017,
+          "from_y": -9.260112463716629,
+          "stroke_val": 14,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "2a104890-fa76-40a3-968b-ea7e8f371ad9",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 874,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 2086,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 1281,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 971,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 560,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 14,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 1392,
+          "from": "Jawa Barat",
+          "from_x": 107.60303105910573,
+          "from_y": -6.920194936949435,
+          "stroke_val": 12,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "fbd5f87d-c9b2-4ce8-b025-4b9c9c5f0a95",
+      "pickable": true
+    },
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "distance(km)": 1001,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Kalimantan Tengah",
+          "to_coords": [
+            113.41766550554112,
+            -1.6023108940793072
+          ]
+        },
+        {
+          "distance(km)": 658,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Sulawesi Utara",
+          "to_coords": [
+            124.52309102286353,
+            1.2620528185493833
+          ]
+        },
+        {
+          "distance(km)": 804,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Kalimantan Timur",
+          "to_coords": [
+            116.47044691495688,
+            0.46004240363960425
+          ]
+        },
+        {
+          "distance(km)": 746,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 14,
+          "to": "Kalimantan Selatan",
+          "to_coords": [
+            115.43955951552073,
+            -2.9932866172095562
+          ]
+        },
+        {
+          "distance(km)": 1988,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 12,
+          "to": "Sumatera Selatan",
+          "to_coords": [
+            104.17037690270533,
+            -3.2174332792568228
+          ]
+        },
+        {
+          "distance(km)": 354,
+          "from": "Sulawesi Tenggara",
+          "from_x": 122.0719145919371,
+          "from_y": -4.126100456582975,
+          "stroke_val": 17,
+          "to": "Sulawesi Barat",
+          "to_coords": [
+            119.34400751686911,
+            -2.461705235447351
+          ]
+        }
+      ],
+      "getSourceColor": [
+        255,
+        122,
+        0
+      ],
+      "getSourcePosition": "@@=[from_x, from_y]",
+      "getStrokeWidth": "@@=stroke_val",
+      "getTargetColor": [
+        112,
+        255,
+        0
+      ],
+      "getTargetPosition": "@@=to_coords",
+      "getTilt": 15,
+      "id": "634bbc9a-658b-491e-a211-d0f8a15930bd",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "pickingRadius": 10,
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': '{from} distribusi ke {to}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
